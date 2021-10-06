@@ -1,17 +1,21 @@
 import React, { useState } from 'react'
 
+import '../assets/styles/Form.css';
+
 const Form = (props) => {
   const {
     onSubmit,
     buttonTitle,
     placeholderValue,
-    inputType
+    inputType,
+    buttonType,
+    cardHeader
   } = props;
 
   const [textValue, setTextValue] = useState("");
   return (
     <div className="card border-0 shadow">
-      <div className="card-header">Add a Todo</div>
+      <div className="card-header">{cardHeader}</div>
       <div className="card-body">
         <form onSubmit={(event) => onSubmit(event, textValue)}>
           <div className="form-group">
@@ -23,7 +27,7 @@ const Form = (props) => {
               onChange={(event) => setTextValue(event.target.value)}
             />
           </div>
-          <button className="btn btn-primary" type="submit">
+          <button className="btn btn-primary submit-btn" type={buttonType}>
             {buttonTitle}
           </button>
         </form>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import '../assets/styles/Navbar.css';
+
 const Navbar = () => {
   return (
     <nav
@@ -8,7 +10,7 @@ const Navbar = () => {
       <div className="container">
         Todo App
       </div>
-      <Link to="/add" className="btn btn-light ml-auto">
+      <Link to="/add" className="btn btn-light ml-auto add-list">
         Create Todo
       </Link>
     </nav>

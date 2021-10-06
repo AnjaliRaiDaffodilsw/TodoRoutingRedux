@@ -20,7 +20,10 @@ const EditTodo = (props) => {
         inputType="text"
         onSubmit={onSubmit}
         placeholderValue="Edit Your Todo"
-        buttonTitle="Edit Todo" />
+        buttonTitle="Edit Todo"
+        buttonType="submit"
+        cardHeader="Edit a Todo"
+      />
     </>
   )
 }

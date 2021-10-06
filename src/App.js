@@ -34,7 +34,7 @@ const App = () => {
       <div className="">
         <Navbar />
         <div className="container">
-          <div className="py-3">
+          <div className="py-3 form-container">
             <Switch>
               <Route exact path="/">
                 <Todo

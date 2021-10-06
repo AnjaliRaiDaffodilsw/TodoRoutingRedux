@@ -18,7 +18,10 @@ const AddTodo = (props) => {
         inputType="text"
         onSubmit={onSubmit}
         placeholderValue="Enter Your Todo"
-        buttonTitle="Add Todo" />
+        buttonTitle="Add Todo"
+        buttonType="submit"
+        cardHeader="Add a Todo"
+      />
     </>
   )
 }

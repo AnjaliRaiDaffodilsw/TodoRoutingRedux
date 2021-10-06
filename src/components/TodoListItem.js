@@ -9,16 +9,20 @@ const TodoListItem = (props) => {
     <div className="list">
       <p>
         {textValue}
+      </p>
+      <div className="buttons-container">
         <Link to={`/edit/${id}`}>
-          <span className="material-icons mr-2">edit</span>
+          <span className="material-icons mr-2">
+            <button className="btn bg-warning ml-auto edit-button">edit</button>
+          </span>
         </Link>
         <span
-          className="material-icons  text-danger"
+          className="material-icons  text-danger delete-button"
           onClick={() => deleteHandler(id)}
         >
           X
         </span>
-      </p>
+      </div>
     </div>
   )
 }
