@@ -1,6 +1,7 @@
 import {
   TODO_LIST,
   ADD_TODO_LIST,
+  DELETE_TODO_LIST,
 } from '../actionTypes/todoActionTypes';
 
 
@@ -24,6 +25,12 @@ export const todoList = (state = initialState, action) => {
         ...state,
         items: [...state.items, { text: action.item, key: action.key }],
       };
+    case DELETE_TODO_LIST:
+      const filteredItem = state.items.filter((item) => item.key !== action.key)
+      return {
+        ...state,
+        items: filteredItem
+      }
     default:
       return state;
   }
