@@ -12,7 +12,7 @@
 }
 
 .list p {
-	margin-top: 7px;
+	margin-top: 10px;
 	padding-left: 9px;
 }
 
@@ -48,6 +48,7 @@
 
 .delete-button {
 	margin-left: 19px;
+	cursor: pointer;
 }
 
 .edit-button{
