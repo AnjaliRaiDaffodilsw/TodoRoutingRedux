@@ -50,6 +50,7 @@ const App = () => {
               <Route exact path="/edit/:id">
                 <EditTodo
                   editHandler={handleEdit}
+                  todoItems={todoItems}
                 />
               </Route>
 

@@ -1,39 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory, useParams } from "react-router-dom";
+import Form from './Form';
 
 const EditTodo = (props) => {
+
   const { editHandler } = props;
   let { id } = useParams();
   let history = useHistory();
-  const [value, setTextValue] = useState("");
 
-  const onSubmit = (event) => {
+  const onSubmit = (event, textValue) => {
     event.preventDefault();
-    editHandler({ key: +id, text: value })
+    editHandler({ key: +id, text: textValue })
     history.push("/");
   }
 
   return (
-    <div className="card border-0 shadow">
-      <div className="card-header">Add a Todo</div>
-      <div className="card-body">
-        <form onSubmit={(event) => onSubmit(event)}>
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Enter Your Todo"
-              value={value}
-              onChange={(event) => setTextValue(event.target.value)}
-            />
-          </div>
-          <button className="btn btn-primary" type="submit">
-            Edit Todo
-        </button>
-        </form>
-      </div>
-    </div>
+    <>
+      <Form
+        inputType="text"
+        onSubmit={onSubmit}
+        placeholderValue="Edit Your Todo"
+        buttonTitle="Edit Todo" />
+    </>
   )
 }
 
-export default EditTodo
+export default EditTodo;
