@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import './App.css';
 import AddTodo from './components/AddTodo';
+import EditTodo from './components/EditTodo';
 import Navbar from './components/Navbar';
 import Todo from './components/Todo';
 
@@ -19,7 +20,7 @@ const App = () => {
               <Route
                 exact
                 path="/edit/:id"
-                component={""}
+                component={EditTodo}
               />
             </Switch>
           </div>

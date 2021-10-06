@@ -1,19 +1,25 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from 'react';
 
-import { addTodoList } from '../redux/actions/todoActions';
+import { useHistory, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { editTodoList } from '../redux/actions/todoActions';
 
-const AddTodo = (props) => {
+const EditTodo = () => {
+  let { id } = useParams();
   let history = useHistory();
-  const dispatch = useDispatch();
+  const todoItems = useSelector((state) => state.todoList.items);
   const [value, setTextValue] = useState("");
+  const dispatch = useDispatch();
 
   const onSubmit = (event) => {
     event.preventDefault();
-    dispatch(addTodoList(value))
+    dispatch(editTodoList({
+      key: +id,
+      text: value
+    }))
     history.push("/");
   }
+
   return (
     <div className="card border-0 shadow">
       <div className="card-header">Add a Todo</div>
@@ -25,16 +31,16 @@ const AddTodo = (props) => {
               className="form-control"
               placeholder="Enter Your Todo"
               value={value}
-              onChange={(e) => setTextValue(e.target.value)}
+              onChange={(event) => setTextValue(event.target.value)}
             />
           </div>
           <button className="btn btn-primary" type="submit">
             Add Todo
-          </button>
+        </button>
         </form>
       </div>
     </div>
   )
 }
 
-export default AddTodo;
+export default EditTodo
