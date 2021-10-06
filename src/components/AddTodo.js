@@ -1,17 +1,14 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
-
-import { addTodoList } from '../redux/actions/todoActions';
 
 const AddTodo = (props) => {
+  const { submitHandler } = props;
   let history = useHistory();
-  const dispatch = useDispatch();
   const [value, setTextValue] = useState("");
 
   const onSubmit = (event) => {
     event.preventDefault();
-    dispatch(addTodoList(value))
+    submitHandler(value);
     history.push("/");
   }
   return (

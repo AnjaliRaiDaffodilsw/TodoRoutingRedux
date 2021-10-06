@@ -1,22 +1,15 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState } from 'react';
 import { useHistory, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { editTodoList } from '../redux/actions/todoActions';
 
-const EditTodo = () => {
+const EditTodo = (props) => {
+  const { editHandler } = props;
   let { id } = useParams();
   let history = useHistory();
-  const todoItems = useSelector((state) => state.todoList.items);
   const [value, setTextValue] = useState("");
-  const dispatch = useDispatch();
 
   const onSubmit = (event) => {
     event.preventDefault();
-    dispatch(editTodoList({
-      key: +id,
-      text: value
-    }))
+    editHandler({ key: +id, text: value })
     history.push("/");
   }
 
@@ -35,7 +28,7 @@ const EditTodo = () => {
             />
           </div>
           <button className="btn btn-primary" type="submit">
-            Add Todo
+            Edit Todo
         </button>
         </form>
       </div>
