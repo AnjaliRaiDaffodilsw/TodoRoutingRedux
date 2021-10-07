@@ -26,6 +26,7 @@ const Form = (props) => {
               className="form-control"
               placeholder={placeholderValue}
               value={textValue}
+              autoFocus
               onChange={(event) => setTextValue(event.target.value)}
             />
           </div>
