@@ -53,7 +53,6 @@ const App = () => {
                   todoItems={todoItems}
                 />
               </Route>
-
             </Switch>
           </div>
         </div>

@@ -21,6 +21,7 @@ const AddTodo = (props) => {
         buttonTitle="Add Todo"
         buttonType="submit"
         cardHeader="Add a Todo"
+        initialValue=""
       />
     </>
   )

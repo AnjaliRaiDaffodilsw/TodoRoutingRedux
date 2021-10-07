@@ -9,10 +9,12 @@ const Form = (props) => {
     placeholderValue,
     inputType,
     buttonType,
-    cardHeader
+    cardHeader,
+    initialValue
   } = props;
 
-  const [textValue, setTextValue] = useState("");
+  const [textValue, setTextValue] = useState(initialValue);
+
   return (
     <div className="card border-0 shadow">
       <div className="card-header">{cardHeader}</div>

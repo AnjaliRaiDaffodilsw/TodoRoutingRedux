@@ -4,7 +4,7 @@ import Form from './Form';
 
 const EditTodo = (props) => {
 
-  const { editHandler } = props;
+  const { editHandler, todoItems } = props;
   let { id } = useParams();
   let history = useHistory();
 
@@ -13,6 +13,11 @@ const EditTodo = (props) => {
     editHandler({ key: +id, text: textValue })
     history.push("/");
   }
+
+  let value = todoItems.filter((val) => {
+    return val.key === +id
+  });
+  let initialValue = value[0].text;
 
   return (
     <>
@@ -23,6 +28,7 @@ const EditTodo = (props) => {
         buttonTitle="Edit Todo"
         buttonType="submit"
         cardHeader="Edit a Todo"
+        initialValue={initialValue}
       />
     </>
   )
